@@ -1,9 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./ProductItem.css";
 import "../../styles.css";
 import { getTrimmed } from "../utils/commonFunctions";
 export const ProductItem = ({ prod, addToCartClickHandler, setToast }) => {
-  const addIcon = "fas fa-cart";
+  // const addIcon = "fas fa-cart";
   const wishIcon = "far fa-heart fa-lg";
   const solidWishIcon = "fas fa-heart fa-lg";
   return (
@@ -46,7 +46,7 @@ export const ProductItem = ({ prod, addToCartClickHandler, setToast }) => {
                 setToast((prev) => ({
                   ...prev,
                   isVisible: "show",
-                  message: "Added to cart"
+                  message: "Added to cart",
                 }));
               }}
             >

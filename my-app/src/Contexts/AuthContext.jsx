@@ -1,7 +1,6 @@
 import axios from "axios";
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { AuthReducer } from "../reducers/AuthReducer";
 import { useToast } from "./ToastContext";
 import { APISERVER } from "../components/utils/commonFunctions";
 
@@ -14,10 +13,10 @@ export const useAuth = () => {
 export function AuthProvider({ children }) {
   const [auth, setAuth] = useState({
     token: "",
-    user: {}
+    user: {},
   });
-  const { toast, setToast } = useToast();
-  const url = `http://localhost:8080`;
+  const { setToast } = useToast();
+  // const url = `http://localhost:8080`;
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,7 +35,7 @@ export function AuthProvider({ children }) {
         // console.log(response);
         setAuth((prev) => ({ ...prev, token: response.data.token }));
         navigate(location?.state ? location?.state?.from?.pathname : "/", {
-          replace: true
+          replace: true,
         });
         return response;
       }
@@ -48,7 +47,7 @@ export function AuthProvider({ children }) {
       setToast((prev) => ({
         ...prev,
         isVisible: "show",
-        message: "Error in logging in"
+        message: "Error in logging in",
       }));
       return err;
     }

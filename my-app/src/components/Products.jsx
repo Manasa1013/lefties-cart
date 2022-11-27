@@ -8,7 +8,7 @@ export function Products({
   handleChangeCategory,
   addToCartClickHandler,
   toast,
-  setToast
+  setToast,
 }) {
   const { state } = useCart();
 
@@ -19,6 +19,7 @@ export function Products({
           .filter((prod) => {
             if (prod.category === shopCategory) return prod;
             else if (shopCategory === "Uncategorised") return prod;
+            return null;
           })
           .map((filteredProd) => {
             return (

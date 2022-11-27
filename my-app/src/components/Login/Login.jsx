@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+// import axios from "axios";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContext";
 import { useToast } from "../../Contexts/ToastContext";
 import "./Login.css";
@@ -10,14 +10,13 @@ export const Login = () => {
   const [loading, setLoading] = useState(false);
   const [loginField, setLoginField] = useState({
     emailID: "kritinandana@gmail.com",
-    password: "KritiN@1"
+    password: "KritiN@1",
   });
   const [loginErrorField, setLoginErrorField] = useState({
     emailError: "",
-    passwordError: ""
+    passwordError: "",
   });
   const [showLoginPassword, setShowLoginPassword] = useState(false);
-  const [signedIn, setSignedIn] = useState(false);
 
   const emailRegexPattern = new RegExp(
     "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$",
@@ -27,11 +26,11 @@ export const Login = () => {
     "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,18}$",
     "i"
   );
-  const url = "http://localhost:8080";
+  // const url = "http://localhost:8080";
 
-  const [validFieldID, setValidFieldID] = useState("");
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [validFieldID] = useState("");
+  // const navigate = useNavigate();
+  // const location = useLocation();
 
   function validateFields(
     regexPattern,
@@ -66,7 +65,7 @@ export const Login = () => {
       setToast((prev) => ({
         ...prev,
         isVisible: "show",
-        message: "Please enter valid credentials"
+        message: "Please enter valid credentials",
       }));
       // setLoading(false);
     } else if (
@@ -76,7 +75,7 @@ export const Login = () => {
       setToast((prev) => ({
         ...prev,
         isVisible: "show",
-        message: "Please enter credentials to log in"
+        message: "Please enter credentials to log in",
       }));
       // setLoading(false);
       return;
@@ -88,7 +87,7 @@ export const Login = () => {
         setToast((prev) => ({
           ...prev,
           isVisible: "show",
-          message: `Successfully logged in ${res.data.firstName}`
+          message: `Successfully logged in ${res.data.firstName}`,
         }));
         localStorage.setItem(
           "token",
@@ -100,7 +99,7 @@ export const Login = () => {
 
         // console.log(location, "at logincomonent");
 
-        // resetLoginValues();
+        resetLoginValues();
       } else {
         // console.log("error at Login.jsx", await res);
       }
@@ -113,7 +112,7 @@ export const Login = () => {
     setLoginField((prev) => ({
       ...prev,
       emailID: "",
-      password: ""
+      password: "",
     }));
   }
 
@@ -125,7 +124,7 @@ export const Login = () => {
       }
     }, 3000);
     return () => clearTimeout(timer);
-  }, [toast]);
+  }, [toast, hideToastBar]);
 
   function handleSubmit(e) {
     e.preventDefault();

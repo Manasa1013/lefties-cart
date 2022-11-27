@@ -2,19 +2,18 @@ import { useEffect } from "react";
 import { useCart } from "../Contexts/CartContext";
 import { useAuth } from "../Contexts/AuthContext";
 import { useToast } from "../Contexts/ToastContext";
-import { Link, redirect, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = ({ shopCategory, handleChangeCategory }) => {
   const { state } = useCart();
   const { auth, setAuth, logoutHandler } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
-  const { toast, setToast, hideToastBar } = useToast();
+  // const location = useLocation();
+  const { setToast } = useToast();
   useEffect(() => {
     if (shopCategory === "Uncategorised") return;
     else navigate("/products");
-  }, [shopCategory]);
-  useEffect(() => {}, [auth]);
+  }, [shopCategory, navigate]);
   const categories = new Set();
   state.stateProducts.forEach((prod) => categories.add(prod.category));
 
@@ -82,7 +81,7 @@ export const Navbar = ({ shopCategory, handleChangeCategory }) => {
                   setToast((prev) => ({
                     ...prev,
                     isVisible: "show",
-                    message: "Logged out successfully"
+                    message: "Logged out successfully",
                   }));
                 }}
                 className="link"
@@ -90,7 +89,7 @@ export const Navbar = ({ shopCategory, handleChangeCategory }) => {
                   outline: "transparent",
                   background: "var(--white)",
                   border: "transparent",
-                  fontSize: "1rem"
+                  fontSize: "1rem",
                 }}
               >
                 {/* {

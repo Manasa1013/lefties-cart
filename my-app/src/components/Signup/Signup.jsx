@@ -6,28 +6,25 @@ import "./Signup.css";
 import "../Login/Login.css";
 import { useToast } from "../../Contexts/ToastContext";
 import { APISERVER } from "../utils/commonFunctions";
-import { imageSources } from "../../data/data";
+// import { imageSources } from "../../data/data";
 export const Signup = () => {
-  const { auth, setAuth } = useAuth();
-  const { toast, setToast, hideToastBar } = useToast();
-  const [fields, setFields] = useState([]);
+  const { setAuth } = useAuth();
+  const { setToast } = useToast();
+  // const [fields, setFields] = useState([]);
   const [field, setField] = useState({
     firstName: "Taylor",
     lastName: "Swift",
     emailID: "taylor@gmail.com",
-    password: "Taylor@1"
+    password: "Taylor@1",
   });
 
-  const [signedIn, setSignedIn] = useState(false);
   const [errorField, setErrorField] = useState({
     firstNameError: "",
     lastNameError: "",
     emailError: "",
-    passwordError: ""
+    passwordError: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-
-  const [showForm, setShowForm] = useState(true);
 
   const nameRegexPattern = new RegExp(
     "^(?=.{5,14}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
@@ -40,9 +37,8 @@ export const Signup = () => {
     "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,18}$",
     "i"
   );
-  const url = "http://localhost:8080";
+  // const url = "http://localhost:8080";
 
-  const [validFieldID, setValidFieldID] = useState("");
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
@@ -59,7 +55,7 @@ export const Signup = () => {
       setToast((prev) => ({
         ...prev,
         isVisible: "show",
-        message: "Please correct errors at the fields"
+        message: "Please correct errors at the fields",
       }));
       return;
     } else if (
@@ -71,7 +67,7 @@ export const Signup = () => {
       setToast((prev) => ({
         ...prev,
         isVisible: "show",
-        message: "Please enter details"
+        message: "Please enter details",
       }));
       return;
     } else {
@@ -89,7 +85,7 @@ export const Signup = () => {
             setToast((prev) => ({
               ...prev,
               isVisible: "show",
-              message: `Successfully signed up ${response.data.firstName}`
+              message: `Successfully signed up ${response.data.firstName}`,
             }));
             setAuth((prev) => ({
               ...prev,
@@ -99,14 +95,12 @@ export const Signup = () => {
                 firstName: response.data.firstName,
                 lastName: "",
                 emailID: "",
-                password: ""
-              }
+                password: "",
+              },
             }));
             navigate("");
             // setFields((prev) => [response.data.data[0], ...prev]);
             // setValidFieldID(() => response.data.data[0].id);
-
-            setSignedIn(() => true);
 
             // console.log(auth);
             resetValues();
@@ -118,12 +112,12 @@ export const Signup = () => {
           setToast((prev) => ({
             ...prev,
             isVisible: "show",
-            message: "Error in signing up"
+            message: "Error in signing up",
           }));
           console.error(err, "at catch of postDetailsToApi");
         }
       };
-      let responseFromPostData = postDetailsToApi();
+      postDetailsToApi();
       // console.log(responseFromPostData);
     }
   }
@@ -133,7 +127,7 @@ export const Signup = () => {
       firstName: "",
       lastName: "",
       emailID: "",
-      password: ""
+      password: "",
     }));
   }
   function validateFields(
@@ -183,7 +177,7 @@ export const Signup = () => {
                 // console.log(e.target.value, "username");
                 return setField((prev) => ({
                   ...prev,
-                  firstName: e.target.value
+                  firstName: e.target.value,
                 }));
               }}
               onBlur={(e) => {
@@ -216,7 +210,7 @@ export const Signup = () => {
                 // console.log(e.target.value, "username");
                 return setField((prev) => ({
                   ...prev,
-                  lastName: e.target.value
+                  lastName: e.target.value,
                 }));
               }}
               onBlur={(e) => {

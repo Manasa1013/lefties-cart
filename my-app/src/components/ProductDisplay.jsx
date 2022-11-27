@@ -1,5 +1,5 @@
-import { useParams, Link } from "react-router-dom";
-import { products } from "../data/data";
+import { useParams } from "react-router-dom";
+// import { products } from "../data/data";
 import { useCart } from "../Contexts/CartContext";
 import { ProductItem } from "./ProductItem/ProductItem";
 

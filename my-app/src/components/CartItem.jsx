@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles.css";
 import "../components/ProductItem/ProductItem.css";
 import { getTrimmed } from "./utils/commonFunctions";
@@ -6,11 +6,11 @@ export const CartItem = ({
   prod,
   incClickHandler,
   decClickHandler,
-  removeClickHandler
+  removeClickHandler,
 }) => {
-  const addIcon = "fas fa-cart";
-  const wishIcon = "far fa-heart fa-lg";
-  const solidWishIcon = "fas fa-heart fa-lg";
+  // const addIcon = "fas fa-cart";
+  // const wishIcon = "far fa-heart fa-lg";
+  // const solidWishIcon = "fas fa-heart fa-lg";
   const plusIcon = "far fa-plus-square fa-lg";
   const minusIcon = "far fa-minus-square fa-lg";
 

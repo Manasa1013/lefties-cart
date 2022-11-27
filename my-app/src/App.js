@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, useActionData } from "react-router";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router";
+import { Outlet } from "react-router-dom";
 
 import { useCart } from "./Contexts/CartContext";
-import { useAuth } from "./Contexts/AuthContext";
+// import { useAuth } from "./Contexts/AuthContext";
 import { Home } from "./pages/Home";
 import { Blogs } from "./pages/Blogs";
 import { Login } from "./components/Login/Login";
@@ -24,7 +24,6 @@ export default function App() {
   const [slideIndex, setSlideIndex] = useState(0);
   const [shopCategory, setShopCategory] = useState("Uncategorised");
   const { dispatch } = useCart();
-  const { auth, setAuth } = useAuth();
   function increaseSlideIndex() {
     setSlideIndex((indexValue) => {
       if (indexValue === imageSources.length - 1) {
@@ -53,7 +52,7 @@ export default function App() {
       }
     }, 3000);
     return () => clearTimeout(timer);
-  }, [toast]);
+  }, [toast, hideToastBar]);
 
   return (
     <div className="App">
