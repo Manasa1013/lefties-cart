@@ -1,0 +1,57 @@
+.toast {
+  background-color: var(--text-primary);
+  color: var(--secondary-green);
+  padding: 0.75rem 1rem 0.5rem 1rem;
+  border-radius: 0.125rem;
+  position: fixed;
+  top: 85%;
+  left: 10%;
+  max-width: 80%;
+  right: 10%;
+  text-align: left;
+  z-index: 10;
+  border-bottom: 4px solid var(--primary-green);
+}
+.icon--xmark {
+  height: 2rem;
+  width: 1.7rem;
+  text-align: center;
+  border-radius: 10%;
+  background-color: var(--text-primary);
+  color: var(--secondary-green);
+  border: none;
+  opacity: 1;
+  font-weight: 800;
+}
+.icon--button {
+  background-color: var(--text-primary);
+  border: none;
+}
+.hide {
+  visibility: hidden;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.show {
+  visibility: show;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@media screen and (min-width: 420px) and (max-width: 600px) {
+  .toast {
+    max-width: 60%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .toast {
+    max-width: 40%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .toast {
+    max-width: 30%;
+  }
+}

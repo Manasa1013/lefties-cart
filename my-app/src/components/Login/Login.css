@@ -1,0 +1,190 @@
+@import url(https://fonts.googleapis.com/css2?family=Titillium + Web&display=swap);
+
+:root {
+  --text-primary: #ffffff;
+  --text-secondary: #cdcdcd;
+  --background-primary: #1b1b1b;
+  --background-secondary: #4e4e4e;
+  --primary-green: #3ff39f;
+  --secondary-green: #047857;
+  --error-red: #e87c03;
+}
+
+.alert {
+  color: var(--error-red);
+}
+
+.alert__border {
+  border: 0.125rem solid var(--error-red);
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.wrapper__main {
+  color: var(--text-primary);
+  padding: 2rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container {
+  background-color: var(--background-secondary);
+  display: flex;
+  flex-direction: column;
+  flex: 30rem;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  height: auto;
+  max-width: 24rem;
+  filter: drop-shadow(0.5rem 0.5rem 1.5rem var(--background-secondary));
+  padding-bottom: 1rem;
+}
+
+#password--container {
+  position: relative;
+}
+
+.crossbutton {
+  position: absolute;
+  bottom: 89%;
+  left: 63%;
+  height: 1.75rem;
+  width: 1.7rem;
+  text-align: center;
+  border-radius: 10%;
+  background-color: var(--background-secondary);
+  color: var(--text-secondary);
+  border: none;
+  opacity: 1;
+  font-weight: 800;
+}
+
+.crossbutton:hover {
+  background-color: var(--text-secondary);
+  color: var(--background-primary);
+  border: 1px solid transparent;
+  transition: all ease-in 0.1s;
+  opacity: 0.6;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-green);
+  border-radius: 0.25rem;
+  border: none;
+  color: var(--background-primary);
+  opacity: 0.8;
+  width: 100%;
+  font-weight: 550;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+hr {
+  border: 0.1px solid gray;
+}
+
+.padding-right {
+  padding: 0.25rem;
+}
+
+.label {
+  font-weight: 570;
+  display: block;
+  padding: 0.25rem 0.5rem 0.25rem 0;
+}
+.input {
+  border: 0.125rem solid transparent;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  width: 100%;
+}
+
+.input:focus {
+  border: 0.125rem solid var(--primary-green);
+}
+
+#password--input {
+  width: calc(73%);
+  margin: 0;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
+
+#passowrd-input :focus {
+  border: 0.125rem solid var(--primary-green);
+}
+
+.secondary {
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  margin: 0;
+  width: 25%;
+  text-align: center;
+  font-weight: 650;
+}
+
+#is--shown {
+  display: inline;
+  color: var(--background-secondary);
+  background-color: var(--text-primary);
+  border-radius: 0.25rem;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  padding: 0.5rem 0.5rem;
+  border: 0.125rem solid transparent;
+}
+
+#is--shown:focus {
+  border: 0.125rem solid var(--primary-green);
+}
+.checkbox {
+  border-radius: 0.125rem;
+  display: inline;
+  border: 2px solid transparent;
+  color: var(--primary-green);
+}
+
+.checkbox:focus {
+  border: 2px solid var(--primary-green);
+}
+
+.label--terms,
+.label--remember {
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.signup,
+.login {
+  margin: 0.75rem 0;
+}
+
+.link--secondary {
+  text-decoration: none;
+  color: var(--primary-green);
+}
